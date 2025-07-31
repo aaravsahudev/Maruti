@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Solar theme colors */
+  --solar-blue: hsl(207, 90%, 54%);
+  --solar-blue-light: hsl(207, 78%, 65%);
+  --solar-gold: hsl(43, 91%, 48%);
+  --solar-gray: hsl(210, 40%, 98%);
+}
+
+.dark {
+  --background: hsl(220, 27%, 3%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 32%, 6%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --popover: hsl(220, 27%, 5%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(220, 27%, 5%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 32%, 17%);
+  --input: hsl(217, 32%, 17%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(220, 27%, 3%);
+  --secondary: hsl(217, 32%, 17%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(217, 32%, 17%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(212.7, 26.8%, 83.9%);
+  
+  /* Enhanced solar theme colors for dark mode */
+  --solar-blue: hsl(207, 90%, 54%);
+  --solar-blue-light: hsl(207, 78%, 65%);
+  --solar-gold: hsl(43, 91%, 58%);
+  --solar-gray: hsl(217, 32%, 6%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .gradient-overlay {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(59, 130, 246, 0.8) 100%);
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .hover-lift {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .hover-lift:hover {
+    box-shadow: 0 35px 60px -12px rgba(59, 130, 246, 0.3);
+  }
+  
+  .gold-shimmer {
+    background: linear-gradient(45deg, #F59E0B, #FBBF24, #F59E0B);
+    background-size: 200% 200%;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+  
+  .loading-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #1E40AF, #3B82F6, #F59E0B);
+    background-size: 200% 100%;
+    animation: loading 2s ease-in-out infinite;
+  }
+
+  .solar-blue {
+    color: var(--solar-blue);
+  }
+
+  .bg-solar-blue {
+    background-color: var(--solar-blue);
+  }
+
+  .solar-blue-light {
+    color: var(--solar-blue-light);
+  }
+
+  .bg-solar-blue-light {
+    background-color: var(--solar-blue-light);
+  }
+
+  .solar-gold {
+    color: var(--solar-gold);
+  }
+
+  .bg-solar-gold {
+    background-color: var(--solar-gold);
+  }
+
+  .solar-gray {
+    color: var(--solar-gray);
+  }
+
+  .bg-solar-gray {
+    background-color: var(--solar-gray);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce 3s infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  .glassmorphism {
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+
+  .dark .glassmorphism {
+    background-color: rgba(17, 25, 40, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+
+  .magnetic-hover {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .magnetic-hover:hover {
+    transform: scale(1.05) translateY(-2px);
+    filter: brightness(1.1);
+  }
+
+  .highlight-text {
+    background: linear-gradient(135deg, hsl(var(--solar-gold)), hsl(var(--solar-gold-light)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  100% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.4); }
+}
